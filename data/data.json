@@ -1,0 +1,39 @@
+{
+  "blogs": [
+    {
+      "title": "My new website",
+      "body": "lorem ipsum dolor amet...",
+      "author": "yusuf",
+      "id": 1
+    },
+    {
+      "title": "Welcome aboard!",
+      "body": "lorem ipsum dolor amet...",
+      "author": "rizal",
+      "id": 2
+    },
+    {
+      "title": "Web dev top tips",
+      "body": "lorem ipsum dolor amet...",
+      "author": "yusuf",
+      "id": 3
+    },
+    {
+      "title": "Learn React.js",
+      "body": "lorem ipsum dolor amet...",
+      "author": "yusuf",
+      "id": 4
+    },
+    {
+      "title": "Learn Web App with Vue.js",
+      "body": "lorem ipsum dolor amet...",
+      "author": "rizal",
+      "id": 5
+    }
+  ],
+  "users": [
+    { "id": 1, "name": "Chaterine", "age": 29, "email": "chaterine@email.com" },
+    { "id": 2, "name": "Helena", "age": 33, "email": "helena@email.com" },
+    { "id": 3, "name": "Olla", "age": 21, "email": "olla@email.com" }
+  ]
+}

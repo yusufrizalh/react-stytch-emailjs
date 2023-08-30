@@ -1,13 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { BrowserRouter as Router } from "react-router-dom";
+import { StytchProvider, initStytch } from "@stytch/stytch-react";
+
+const stytch = initStytch(
+  "public-token-test-dfb4f080-af66-422c-9937-04ebbfe5c3f5"
+);
+
+const root = ReactDOM.createRoot(document.getElementById("main"));
 root.render(
   <React.StrictMode>
-    <App />
+    <StytchProvider stytch={stytch}>
+      <Router>
+        <App />
+      </Router>
+    </StytchProvider>
   </React.StrictMode>
 );
 
