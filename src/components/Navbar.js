@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 import { useStytchSession } from "@stytch/stytch-react";
 
 const Navbar = ({ handleLogout }) => {
@@ -23,15 +22,13 @@ const Navbar = ({ handleLogout }) => {
         >
           New Blog
         </Link>
-        {session && <Link to="/account">Account</Link>}
         {!session && <Link to="/login">Login</Link>}
-        {session && (
-          <button className="btn btn-md text-primary" onClick={handleLogout}>
-            Logout
-          </button>
-        )}
+        {session && <Link to="/account">Account</Link>}
+        {session && <Link to="/gallery">Gallery</Link>}
+        {session && <Link onClick={handleLogout}>Logout</Link>}
       </div>
     </nav>
   );
 };
+
 export default Navbar;

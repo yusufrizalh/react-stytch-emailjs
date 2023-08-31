@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { useStytch, useStytchSession } from "@stytch/stytch-react";
 import { useNavigate } from "react-router-dom";
+import { useStytch, useStytchSession } from "@stytch/stytch-react";
 
 const Authenticate = () => {
+  const navigate = useNavigate();
   const client = useStytch();
   const session = useStytchSession();
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (session) {
@@ -15,18 +15,17 @@ const Authenticate = () => {
       client.magicLinks
         .authenticate(token, { session_duration_minutes: 60 })
         .then(() => {
-          alert("Successfully Authenticate!");
-          navigate(0);
+          alert("Success to authenticate!");
+          //navigate(0); // reload
         });
     }
-  }, [client, session]);
+  }, [client, session]); // dirender saat muncul client dan session
 
   return (
     <div className="container">
       <h3>
-        <strong>Loading.....</strong>
+        <b>Loading.....</b>
       </h3>
-      <p>Please wait while we authenticate your token.</p>
     </div>
   );
 };

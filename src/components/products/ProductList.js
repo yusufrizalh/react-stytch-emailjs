@@ -2,6 +2,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
+
 const ProductList = () => {
   const [products, setProducts] = useState([]); // array kosong
 
@@ -28,6 +31,11 @@ const ProductList = () => {
       });
     });
   }
+
+  const deleteProduct = async (id) => {
+    await axios.delete(`http://localhost:3002/products/${id}`);
+    getAllProducts();
+  };
 
   return (
     <div className="container">
@@ -71,7 +79,25 @@ const ProductList = () => {
                 >
                   Edit
                 </Link>{" "}
-                <button className="btn btn-sm btn-outline-danger">
+                <button
+                  className="btn btn-sm btn-outline-danger"
+                  onClick={() => {
+                    confirmAlert({
+                      title: "Delete Product",
+                      message: "Are you sure to delete?",
+                      buttons: [
+                        {
+                          label: "Yes",
+                          onClick: () => deleteProduct(product.id),
+                        },
+                        {
+                          label: "Cancel",
+                          onClick: () => alert("Cancel"),
+                        },
+                      ],
+                    });
+                  }}
+                >
                   Delete
                 </button>
               </td>

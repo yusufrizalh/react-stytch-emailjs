@@ -1,7 +1,7 @@
-import { Navigate } from "react-router-dom";
 import { useStytchSession } from "@stytch/stytch-react";
+import { Navigate } from "react-router-dom";
 
-const PrivateRoute = ({ children }) => {
+const PrivateComponent = ({ children }) => {
   const session = useStytchSession();
 
   if (!session) {
@@ -11,4 +11,4 @@ const PrivateRoute = ({ children }) => {
   }
 };
 
-export default PrivateRoute;
+export default PrivateComponent;

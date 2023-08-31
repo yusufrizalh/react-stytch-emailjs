@@ -4,17 +4,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+import * as stytch from "stytch";
+import { initStytch, StytchProvider } from "@stytch/stytch-react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { StytchProvider, initStytch } from "@stytch/stytch-react";
 
-const stytch = initStytch(
-  "public-token-test-dfb4f080-af66-422c-9937-04ebbfe5c3f5"
-);
+const myStytch = initStytch(
+  "public-token-test-ef20f454-58c0-4865-89ab-d8f9e8cf414b"
+); // public token
 
 const root = ReactDOM.createRoot(document.getElementById("main"));
 root.render(
   <React.StrictMode>
-    <StytchProvider stytch={stytch}>
+    <StytchProvider stytch={myStytch}>
       <Router>
         <App />
       </Router>
